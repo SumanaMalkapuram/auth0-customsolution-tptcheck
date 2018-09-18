@@ -1,0 +1,18 @@
+<body>
+<script>
+	var cookieName = "_auth0_custom_tpt";
+	var cookie = cookieName + "=1";
+	if (document.location.href.indexOf('noredirect=1') > -1) {
+		 if (window.parent) {
+			if (document.cookie.indexOf(cookieName) > -1) {
+				window.parent.postMessage('tpc-yes', '*');
+			} else {
+				window.parent.postMessage('tpc-no', '*');
+			}
+		 }
+	} else {
+		document.cookie=cookie;
+		document.location="/?noredirect=1";
+	}
+</script>
+</body>
